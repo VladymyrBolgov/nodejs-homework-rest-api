@@ -11,20 +11,18 @@ const {
 } = require("../../controllers");
  
 const { validation, ctrlWrapper } = require("../../middlewares");
-const { contactSchema } = require("../../schemas");
+const {
+  contactSchema
+} = require("../../schemas");
 
 const validateMiddleWate = validation(contactSchema);
 
 const router = express.Router()
 
 router.get('/', ctrlWrapper(getContacts));
-
 router.get('/:Id', ctrlWrapper(getContactById));
-
 router.post('/', validateMiddleWate, ctrlWrapper(addNewContact));
-
 router.delete('/:Id', ctrlWrapper(deleteContact));
-
 router.put('/:Id', validateMiddleWate, ctrlWrapper(updateContact));
 
 module.exports = router;
