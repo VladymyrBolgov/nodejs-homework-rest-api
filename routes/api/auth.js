@@ -23,4 +23,4 @@ router.get("/logout", logoutValidation);
 router.get("/current", currentUserValidation);
 router.patch("/", subscriptionValidation, subscriptionController);
 
-module.exports = router;
+module.exports = {authRouter: router};
