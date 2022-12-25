@@ -32,9 +32,7 @@ router.post('/', contactCreateValidation, ctrlWrapper(addNewContact));
 
 router.put('/:Id', contactUpdateValidation, ctrlWrapper(updateContact));
 
-router.patch("/:id/favorite",
-  contactFavoriteValidation,
-  ctrlWrapper(updateContactFavorite)
+router.patch("/:id/favorite", contactFavoriteValidation, ctrlWrapper(updateContactFavorite)
 );
 
 module.exports = router;
