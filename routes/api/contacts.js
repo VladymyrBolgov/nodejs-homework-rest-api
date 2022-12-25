@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 
 const {
   contacts: {
@@ -21,11 +21,11 @@ const {
 const contactCreateValidation = validation(createContactSchema);
 const contactUpdateValidation = validation(updateContactSchema);
 const contactFavoriteValidation = validation(contactFavoriteSchema);
+
 const router = express.Router();
 
 router.get('/', ctrlWrapper(getContacts));
 router.get('/:Id', ctrlWrapper(getContactById));
-
 router.delete('/:Id', ctrlWrapper(deleteContact));
 
 router.post('/', contactCreateValidation, ctrlWrapper(addNewContact));
