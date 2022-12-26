@@ -4,7 +4,7 @@ const {
   NotAutorizedError,
   RegistrationConflictError,
 } = require("../helpers/errors");
-const { User } = require("../db/authModel");
+const { User } = require("../models/user");
 
 const registration = async (email, password) => {
   const dublicateUser = await User.findOne({ email });
