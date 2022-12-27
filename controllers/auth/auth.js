@@ -4,7 +4,7 @@ const {
     changeSubscription,
   } = require("../../services/authService");
  
-  const registrationController = async (req, res) => {
+  const register = async (req, res) => {
     const { email, password } = req.body;
   
     const user = await registration(email, password);
@@ -40,7 +40,7 @@ const {
   };
   
   module.exports = {
-    registrationController,
+    register,
     loginController,
     subscriptionController,
   };
