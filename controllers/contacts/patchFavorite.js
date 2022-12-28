@@ -1,5 +1,5 @@
-const { Contact } = require("../../models");
 const createError = require('http-errors');
+const { Contact } = require("../../model");
 
 const patchFavorite = async (req, res, next) => {
     try {
@@ -21,8 +21,7 @@ const patchFavorite = async (req, res, next) => {
         });
     } catch (error) {
         next(error);
-    }
-   
+    } 
 };
 
 module.exports = patchFavorite;

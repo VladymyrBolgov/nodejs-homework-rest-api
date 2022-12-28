@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const contactSchema = Schema(
-  {
+const contactSchema = Schema({
     name: {
       type: String,
       required: [true, 'Set name for contact'],
@@ -20,8 +19,7 @@ const contactSchema = Schema(
       type: Schema.Types.ObjectId,
       ref: 'user',
     },
-  },
-  { versionKey: false, timeStamps: true }
+  },{ versionKey: false, timeStamps: true }
 );
 
 const Contact = model("contact", contactSchema);

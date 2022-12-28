@@ -1,8 +1,6 @@
 const { Schema, model } = require("mongoose");
-const {handleMongooseError} = require("../middlewares")
 
-const userSchema = Schema(
-    {
+const userSchema = Schema({
         password: {
             type: String,
             required: [true, 'Password is required'],
@@ -21,14 +19,9 @@ const userSchema = Schema(
             type: String,
             default: null,
         },
-    }
-);
-
-userSchema.post("save", handleMongooseError)
+    },{ versionKey: false, timestamps: true });
 
 const User = model("user", userSchema);
 
-module.exports = {
-    User,
-};
+module.exports = { User };
     
