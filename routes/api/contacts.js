@@ -13,7 +13,6 @@ const {
   },
 } = require("../../controllers");
  
-const { validation, ctrlWrapper } = require("../../middlewares");
 const {
   createContactSchema,
   updateContactSchema,

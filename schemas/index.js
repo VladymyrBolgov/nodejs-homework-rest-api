@@ -2,17 +2,14 @@ const {
     createContactSchema,
     updateContactSchema,
     contactFavoriteSchema,
-} = require("./contacts");
+  } = require("./contacts");
   
-const {
-    signupUserSchema,
-    loginUserSchema,
-} = require("./user");
-
-module.exports = {
+  const { signupUserSchema, loginUserSchema } = require("./user");
+  
+  module.exports = {
     createContactSchema,
     updateContactSchema,
     contactFavoriteSchema,
     signupUserSchema,
     loginUserSchema,
-}
+  };

@@ -1,24 +1,24 @@
 const Joi = require("joi");
 
 const user = {
-  name: Joi.string().required(),
   email: Joi.string().required(),
   password: Joi.string().required(),
+  subscription: Joi.string().default("starter").optional(),
 };
 
 const signupUserSchema = Joi.object({
-    name: user.name,
-    email: user.email,
-    password: user.password,
+  email: user.email,
+  password: user.password,
+  subscription: user.subscription,
 }).required();
-  
+
 const loginUserSchema = Joi.object({
-    name: user.name.optional,
-    email: user.email,
-    password: user.password,
+  email: user.email,
+  password: user.password,
+  subscription: user.subscription,
 }).required();
-  
+
 module.exports = {
-    signupUserSchema,
-    loginUserSchema,
-  };
+  signupUserSchema,
+  loginUserSchema,
+};
