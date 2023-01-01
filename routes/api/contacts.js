@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { validation, ctrlWrapper } = require("../../middlewares");
+const {auth, validation, ctrlWrapper } = require("../../middlewares");
 
 const {
   contacts: {
@@ -24,13 +24,13 @@ const contactUpdateValidation = validation(updateContactSchema);
 const contactFavoriteValidation = validation(contactFavoriteSchema);
 const router = express.Router();
 
-router.get('/', ctrlWrapper(getContacts));
+router.get('/', auth, ctrlWrapper(getContacts));
 
 router.get('/:Id', ctrlWrapper(getContactById));
 
 router.delete('/:Id', ctrlWrapper(deleteContact));
 
-router.post('/', contactCreateValidation, ctrlWrapper(addNewContact));
+router.post('/', auth, contactCreateValidation, ctrlWrapper(addNewContact));
 
 router.put('/:Id', contactUpdateValidation, ctrlWrapper(updateContact));
 
