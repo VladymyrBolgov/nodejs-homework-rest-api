@@ -1,7 +1,7 @@
 const express = require("express");
 const {validation, ctrlWrapper, auth} = require("../../middlewares");
 const {
-    users: { signup, login, getCurrent, logout },
+    users: { signup, login, getCurrent, logout, updateUser },
 } = require("../../controllers");
 const { signupUserSchema, loginUserSchema } = require("../../schemas");
  
@@ -14,5 +14,6 @@ router.post("/signup", userSignupValidation, ctrlWrapper(signup));
 router.post("/login", userLoginValidation, ctrlWrapper(login));
 router.get("/current", auth, ctrlWrapper(getCurrent));
 router.get("/logout", auth, ctrlWrapper(logout));
+router.get("/users", auth, ctrlWrapper(updateUser));
 
 module.exports = router;
