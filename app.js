@@ -26,4 +26,6 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message: err.message });
 });
 
+app.use(express.static('public'));
+
 module.exports = app;
