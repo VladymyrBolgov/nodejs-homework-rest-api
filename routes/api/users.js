@@ -15,7 +15,6 @@ router.post("/login", userLoginValidation, ctrlWrapper(login));
 router.get("/current", auth, ctrlWrapper(getCurrent));
 router.post("/logout", auth, ctrlWrapper(logout));
 
-// это доделать, возможно переделать updateUser на updateAvatar
 router.patch("/users", auth, ctrlWrapper(updateUser));
 
 router.patch("/avatars", auth, upload.single('avatar'), ctrlWrapper(updateAvatar))
