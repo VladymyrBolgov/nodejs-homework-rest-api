@@ -11,12 +11,14 @@ const updateAvatar = async(req, res)=> {
     const filename = `${_id}_${originalname}`;
     const resultUpload = path.join(avatarsDir, filename);
     await fs.rename(tempUpload, resultUpload);
+   // await fs.rename("../../temp/avatar.jpg", "../../public/avatars/avatar.jpg")
     const avatarURL = path.join("avatars", filename);
     await User.findByIdAndUpdate(_id, {avatarURL});
 
     res.json({
         avatarURL,
     })
+    
 }
 
 module.exports = updateAvatar;
