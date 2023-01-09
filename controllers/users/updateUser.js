@@ -12,3 +12,5 @@
 //   });
 // };
 // module.exports = updateUser;
+
+// updateUser этот код нужен или уже нет. У Богдана его нет
