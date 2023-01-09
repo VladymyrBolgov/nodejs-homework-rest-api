@@ -1,7 +1,7 @@
 const { Conflict } = require("http-errors");
 const { User } = require("../../models");
 
-const bcript = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const gravatar = require("gravatar")
 
 const signup = async (req, res) => {
