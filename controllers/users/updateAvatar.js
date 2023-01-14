@@ -31,21 +31,3 @@ const updateAvatar = async (req, res) => {
 };
 
 module.exports = updateAvatar;
-
-
-   // const resultUpload = path.join(avatarsDir, filename);
-    // await fs.rename(tempUpload, resultUpload);
-    // Jimp.read(tempUpload)
-    //     .then(avatar => {
-    //         return avatar
-    //             .resize(250, 250)
-    //             .write(resultUpload)
-    //     }
-    //     )
-    //     .catch((error) => console.log(error));
-
-    
-    // const avatarURL = path.join("public", "avatars", filename);
-    // await User.findByIdAndUpdate(req.user._id, { avatarURL });
- 
-    // res.json({ avatarURL, });
