@@ -1,11 +1,15 @@
+const bcrypt = require("bcrypt");
+const gravatar = require("gravatar");
 const { Conflict } = require("http-errors");
+const { nanoid } = require("nanoid");
+
 const { User } = require("../../models");
 
-const bcrypt = require("bcrypt");
-const gravatar = require("gravatar")
+const { sendEmail } = require("../../helpers/");
+
+const {BASE_URL} = process.env;
 
 const signup = async (req, res) => {
-
   const { email, password } = req.body;
   
     const user = await User.findOne({ email });
@@ -13,11 +17,20 @@ const signup = async (req, res) => {
       throw new Conflict("Email in use");
   }
   
-  const avatarURL = gravatar.url(email);
   const hashPassword = await bcrypt.hash(password, 10)
+  const avatarURL = gravatar.url(email);
+  const verificationCode = nanoid();
+  
+  const newUser = await User.create({...req.body, password: hashPassword, avatarURL, verificationCode});
  
-  const newUser = await User.create({...req.body, password: hashPassword, avatarURL});
- 
+  const verifyEmail = {
+    to: email,
+    subject: "Verify you email",
+    html: `<a target="_blank" href="${BASE_URL}/api/auth/verify/${verificationCode}">Click verify email</a>`
+  };
+
+  await sendEmail(verifyEmail);
+
   newUser.setPassword(password);
   newUser.save();
   
