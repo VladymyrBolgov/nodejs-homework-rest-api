@@ -1,16 +1,20 @@
+// 7
 const { User } = require("../../models/user");
 
 const { HttpError } = require("../../helpers");
 
 const verify = async (req, res) => {
-    const { verificationCode } = req.params;
-    const user = await User.findOne({ verificationCode });
+    const { verificationToken } = req.params;
+    const user = await User.findOne({ verificationToken });
+    
     if (!user) {
         throw HttpError(404);
     }
-    await User.findByIdAndUpdate(user._id, { verify: true, verificationCode: "" });
+    await User.findByIdAndUpdate(user._id, { verify: true, verificationToken: "" });
     
     res.json({
+        status: "success",
+        code: 200,
         message: "Email verify success"
     })
 }

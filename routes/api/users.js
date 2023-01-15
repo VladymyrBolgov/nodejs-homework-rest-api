@@ -10,13 +10,14 @@ const router = express.Router();
 
 const userSignupValidation = validation(signupUserSchema);
 const userLoginValidation = validation(loginUserSchema);
-const userEmailValidation = validation(emailUserSchema);
+ const userEmailValidation = validation(emailUserSchema);
 
 // signup
 router.post("/signup", userSignupValidation, ctrlWrapper(signup));
-router.get("/verify/:verificationCode", ctrlWrapper(verify));
-router.post("verify", userEmailValidation, ctrlWrapper(resendVerifyEmail))
-
+// 6
+ router.get("/verify/:verificationToken", ctrlWrapper(verify));
+ router.post("verify", userEmailValidation, ctrlWrapper(resendVerifyEmail));
+// 6
 // signin
 router.post("/login", userLoginValidation, ctrlWrapper(login));
 router.get("/current", auth, ctrlWrapper(getCurrent));
