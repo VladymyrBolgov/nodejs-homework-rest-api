@@ -15,9 +15,11 @@ const userLoginValidation = validation(loginUserSchema);
 // signup
 router.post("/signup", userSignupValidation, ctrlWrapper(signup));
 // 6
- router.get("/verify/:verificationToken", ctrlWrapper(verify));
- router.post("verify", userEmailValidation, ctrlWrapper(resendVerifyEmail));
+router.get("/verify/:verificationToken", ctrlWrapper(verify));
 // 6
+// 8 проверяет и повторно отправляет письмо
+router.post("verify", userEmailValidation, ctrlWrapper(resendVerifyEmail));
+// 8
 // signin
 router.post("/login", userLoginValidation, ctrlWrapper(login));
 router.get("/current", auth, ctrlWrapper(getCurrent));

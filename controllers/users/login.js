@@ -13,11 +13,11 @@ const login = async (req, res) => {
   if (!user || !user.comparePassword(password)) {
     throw new Unauthorized("Email or password is wrong");
   }
-
+// 8 проверка на верификованый акаунт
   if(!user.verify) {
     throw HttpError(401, "Email not verify")
 }
-
+// 8
   const payload = {
     id: user._id,
   };

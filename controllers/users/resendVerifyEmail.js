@@ -1,3 +1,4 @@
+// 10 проверяет и повторно отправляет письмо
 const { User } = require("../../models");
 
 const { HttpError, sendEmail } = require("../../helpers");
@@ -10,7 +11,7 @@ const resendVerifyEmail = async(req, res)=> {
     if (!user || user.verify) {
         throw HttpError(404)
     }
-
+// если не подтвержден email, отправляем повторно
     const verifyEmail = {
         to: email,
         subject: "Verify you email",
