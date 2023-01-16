@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const gravatar = require("gravatar");
 const { Conflict } = require("http-errors");
 // 2
-const { nanoid } = require("nanoid");
+const { nanoid } = require("nanoid")
 // 2
 const { User } = require("../../models");
 // 3
