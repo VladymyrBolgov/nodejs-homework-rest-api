@@ -18,7 +18,7 @@ router.post("/signup", userSignupValidation, ctrlWrapper(signup));
 router.get("/verify/:verificationToken", ctrlWrapper(verify));
 // 6
 // 8 проверяет и повторно отправляет письмо
-router.post("verify", userEmailValidation, ctrlWrapper(resendVerifyEmail));
+router.post("/verify", userEmailValidation, ctrlWrapper(resendVerifyEmail));
 // 8
 // signin
 router.post("/login", userLoginValidation, ctrlWrapper(login));
