@@ -12,7 +12,7 @@ const resendVerifyEmail = async(req, res)=> {
         throw HttpError(404)
     }
 
-    await sendConfirmationEmail(email)
+    await sendConfirmationEmail(email, user.verificationToken)
 // если не подтвержден email, отправляем повторно
     // const verifyEmail = {
     //     to: email,
