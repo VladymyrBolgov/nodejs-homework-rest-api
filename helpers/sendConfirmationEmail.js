@@ -2,7 +2,7 @@ const sendEmail = require("./sendEmail");
 
 const { BASE_URL } = process.env;
 
-const sendContirmationEmail = async (email, verificationToken) => {
+const sendConfirmationEmail = async (email, verificationToken) => {
 
     const verifyEmail = {
         to: email,
@@ -11,4 +11,4 @@ const sendContirmationEmail = async (email, verificationToken) => {
       };
       await sendEmail(verifyEmail);
 }
-module.exports = sendContirmationEmail;
+module.exports = sendConfirmationEmail;

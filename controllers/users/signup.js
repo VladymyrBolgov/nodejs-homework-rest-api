@@ -6,7 +6,7 @@ const {nanoid} = require("nanoid")
 
 const { User } = require("../../models");
 
-const { sendContirmationEmail } = require("../../helpers");
+const {sendConfirmationEmail} = require("../../helpers")
 
 const signup = async (req, res) => {
   const { email, password } = req.body;
@@ -22,7 +22,7 @@ const signup = async (req, res) => {
   
   const newUser = await User.create({...req.body, password: hashPassword, avatarURL, verificationToken});
  
-  await sendContirmationEmail(email, verificationToken)
+  await sendConfirmationEmail(email, verificationToken)
 
   newUser.setPassword(password);
   newUser.save();
