@@ -4,16 +4,15 @@ const {
     users: { signup, login, getCurrent, logout, updateUser, updateAvatar, verify, resendVerifyEmail },
 } = require("../../controllers");
 const { signupUserSchema, loginUserSchema, emailUserSchema} = require("../../schemas");
-// const { verify } = require("jsonwebtoken");
- 
+
 const router = express.Router();
 
 const userSignupValidation = validation(signupUserSchema);
 const userLoginValidation = validation(loginUserSchema);
- const userEmailValidation = validation(emailUserSchema);
-
+const userEmailValidation = validation(emailUserSchema);
 
 router.post("/signup", userSignupValidation, ctrlWrapper(signup));
+
 router.get("/verify/:verificationToken", ctrlWrapper(verify));
 router.post("/verify", userEmailValidation, ctrlWrapper(resendVerifyEmail));
 

@@ -1,4 +1,3 @@
-// 1
 const sgMail = require("@sendgrid/mail");
 require("dotenv");
 
