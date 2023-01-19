@@ -26,9 +26,6 @@ router.get('/:Id', ctrlWrapper(getContactById));
 router.delete('/:Id', ctrlWrapper(deleteContact));
 router.post('/', auth, contactCreateValidation, ctrlWrapper(addNewContact));
 router.put('/:Id', contactUpdateValidation, ctrlWrapper(updateContact));
-router.patch("/:id/favorite",
-  contactFavoriteValidation,
-  ctrlWrapper(updateContactFavorite)
-);
+router.patch("/:id/favorite", contactFavoriteValidation,ctrlWrapper(updateContactFavorite));
 
 module.exports = router;

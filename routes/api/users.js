@@ -1,9 +1,26 @@
 const express = require("express");
-const {validation, ctrlWrapper, auth, upload} = require("../../middlewares");
 const {
-    users: { signup, login, getCurrent, logout, updateUser, updateAvatar, verify, resendVerifyEmail },
+    auth,
+    upload,
+    validation,
+    ctrlWrapper,
+} = require("../../middlewares");
+const {
+    users: {
+        login,
+        logout,
+        verify,
+        signup,
+        updateUser,
+        getCurrent,
+        updateAvatar,
+        resendVerifyEmail },
 } = require("../../controllers");
-const { signupUserSchema, loginUserSchema, emailUserSchema} = require("../../schemas");
+const {
+    loginUserSchema,
+    emailUserSchema,
+    signupUserSchema,
+} = require("../../schemas");
 
 const router = express.Router();
 

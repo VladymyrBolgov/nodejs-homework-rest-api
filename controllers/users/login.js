@@ -1,8 +1,7 @@
 const { Unauthorized } = require("http-errors");
 const { User } = require("../../models");
 const jwt = require("jsonwebtoken");
-
-const {HttpError} = require("../../helpers")
+const { HttpError } = require("../../helpers")
 
 const { SECRET_KEY } = process.env;
 

@@ -1,11 +1,8 @@
 const bcrypt = require("bcrypt");
 const gravatar = require("gravatar");
 const { Conflict } = require("http-errors");
-
 const {nanoid} = require("nanoid")
-
 const { User } = require("../../models");
-
 const {sendConfirmationEmail} = require("../../helpers")
 
 const signup = async (req, res) => {

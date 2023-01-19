@@ -1,5 +1,4 @@
 const { User } = require("../../models");
-
 const { HttpError, sendConfirmationEmail } = require("../../helpers");
 
 const resendVerifyEmail = async(req, res)=> {

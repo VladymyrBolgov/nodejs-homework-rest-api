@@ -6,11 +6,11 @@ const {
   
   const { signupUserSchema, loginUserSchema, emailUserSchema } = require("./user");
   
-  module.exports = {
-    createContactSchema,
-    updateContactSchema,
-    contactFavoriteSchema,
-    signupUserSchema,
-    loginUserSchema,
-    emailUserSchema,
+module.exports = {
+  loginUserSchema,
+  emailUserSchema,
+  signupUserSchema,
+  createContactSchema,
+  updateContactSchema,
+  contactFavoriteSchema,
   };

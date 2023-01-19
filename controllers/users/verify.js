@@ -1,6 +1,4 @@
-// 7
 const { User } = require("../../models");
-
 const { HttpError } = require("../../helpers");
 
 const verify = async (req, res) => {
