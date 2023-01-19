@@ -4,12 +4,13 @@ const {
     contactFavoriteSchema,
   } = require("./contacts");
   
-  const { signupUserSchema, loginUserSchema } = require("./user");
+  const { signupUserSchema, loginUserSchema, emailUserSchema } = require("./user");
   
-  module.exports = {
-    createContactSchema,
-    updateContactSchema,
-    contactFavoriteSchema,
-    signupUserSchema,
-    loginUserSchema,
+module.exports = {
+  loginUserSchema,
+  emailUserSchema,
+  signupUserSchema,
+  createContactSchema,
+  updateContactSchema,
+  contactFavoriteSchema,
   };

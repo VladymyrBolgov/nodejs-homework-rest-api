@@ -17,8 +17,13 @@ const loginUserSchema = Joi.object({
   password: user.password,
   subscription: user.subscription,
 }).required();
-
+// 9 схема проверяющая email
+const emailUserSchema = Joi.object({
+  email: user.email,
+}).required();
+// 9
 module.exports = {
   signupUserSchema,
   loginUserSchema,
+  emailUserSchema,
 };

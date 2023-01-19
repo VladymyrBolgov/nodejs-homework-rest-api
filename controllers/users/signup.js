@@ -1,11 +1,11 @@
-const { Conflict } = require("http-errors");
-const { User } = require("../../models");
-
 const bcrypt = require("bcrypt");
-const gravatar = require("gravatar")
+const gravatar = require("gravatar");
+const { Conflict } = require("http-errors");
+const {nanoid} = require("nanoid")
+const { User } = require("../../models");
+const {sendConfirmationEmail} = require("../../helpers")
 
 const signup = async (req, res) => {
-
   const { email, password } = req.body;
   
     const user = await User.findOne({ email });
@@ -13,11 +13,14 @@ const signup = async (req, res) => {
       throw new Conflict("Email in use");
   }
   
-  const avatarURL = gravatar.url(email);
   const hashPassword = await bcrypt.hash(password, 10)
+  const avatarURL = gravatar.url(email);
+  const verificationToken = nanoid();
+  
+  const newUser = await User.create({...req.body, password: hashPassword, avatarURL, verificationToken});
  
-  const newUser = await User.create({...req.body, password: hashPassword, avatarURL});
- 
+  await sendConfirmationEmail(email, verificationToken)
+
   newUser.setPassword(password);
   newUser.save();
   

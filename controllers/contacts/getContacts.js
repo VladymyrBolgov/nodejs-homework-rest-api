@@ -21,7 +21,6 @@ const getContacts = async (req, res, next) => {
     }
   }
   
-
   const contacts = await Contact.find({ owner: _id, ...findOptions }, "-createdAt -updatedAt", {
     skip,
     limit: Number(limit)
